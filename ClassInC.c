@@ -36,7 +36,7 @@ void speak(struct Animal *animal){
 Animal *createAnimal(char *name, int nameLength){
 
     /*Place in heap */
-    Animal *animal = malloc(sizeof(Animal));
+    Animal *animal = malloc(sizeof(Animal)); //consider this similar to the (new) keyword
 
     /*Set attribute by constructor */
     animal->name = name;
