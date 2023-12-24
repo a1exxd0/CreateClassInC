@@ -16,4 +16,5 @@ int main(){
     printf("now pop twice: we popped %d\n", myStack->pop(myStack));
     printf("now pop thrice: we popped %d\n", myStack->pop(myStack));
     printf("stack size is %d\n", myStack->size);
+    destroyStack(myStack);
 }
