@@ -14,12 +14,12 @@ typedef struct Stack{
     StackNode *top;
     int size;
 
-    bool (*push)(struct Stack*, int);
+    void (*push)(struct Stack*, int);
     int (*pop)(struct Stack*);
     int (*peek)(struct Stack*);
 } Stack;
 
-bool push(Stack *stack, int val);
+void push(Stack *stack, int val);
 
 int pop(Stack *stack);
 

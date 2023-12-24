@@ -4,12 +4,17 @@
 #include "StackClass.h"
 
 static StackNode* createStackNode(int val){
-    StackNode *node = malloc(sizeof(StackNode));
+    fflush(stdout);
+    StackNode *node = (StackNode*)malloc(sizeof(StackNode));
+    fflush(stdout);
+    if (node == NULL) {
+        fprintf(stderr, "Memory allocation failed.\n");
+    }
     node->data = val;
     return node;
 }
 
-static destroyStackNode(StackNode *node){
+static void destroyStackNode(StackNode *node){
     free(node);
 }
 
@@ -22,7 +27,7 @@ static void destroyLowerStackNodes(StackNode *node){
     }
 }
 
-bool push(Stack *stack, int val){
+void push(Stack *stack, int val){
     StackNode *node = createStackNode(val);
     stack->size = (stack->size) + 1;
     StackNode *topNode = stack->top;
@@ -36,10 +41,11 @@ int pop(Stack *stack){
         return 0;
     } else{
         StackNode *nextTop = stack->top->next;
+        int returnedValue = stack->top->data;
         destroyStackNode(stack->top);
         stack->size = (stack->size) - 1;
         stack->top = nextTop;
-        return (stack->top->data);   
+        return (returnedValue);   
     }
 }
 
@@ -53,7 +59,7 @@ int peek(Stack *stack){
 }
 
 Stack* createEmptyStack(){
-    Stack *stack = malloc(sizeof(StackNode));
+    Stack *stack = malloc(sizeof(Stack));
     stack->size = 0;
     stack->push = &push;
     stack->pop = &pop;
