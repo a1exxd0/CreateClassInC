@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "c:/Degree/LearnC/CreateClassInC",
-      "program": "c:/Degree/LearnC/CreateClassInC/build/Debug/outDebug",
+      "cwd": "c:/Degree/LearnC/CreateClassInC/IntegerStack",
+      "program": "c:/Degree/LearnC/CreateClassInC/IntegerStack/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [

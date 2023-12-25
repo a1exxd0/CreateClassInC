@@ -3,21 +3,29 @@
 #include <stdlib.h>
 #include "StackClass.h"
 
+/**
+ * \brief       Private function to create a node for a stack, storing pointer & val
+ * \param       val: the value to be stored in the node
+ * \return      Pointer to the node created
+*/
 static StackNode* createStackNode(int val){
-    fflush(stdout);
     StackNode *node = (StackNode*)malloc(sizeof(StackNode));
-    fflush(stdout);
-    if (node == NULL) {
-        fprintf(stderr, "Memory allocation failed.\n");
-    }
     node->data = val;
     return node;
 }
 
+/**
+ * \brief       Removes a node from the heap
+ * \param       node: pointer to the node wanted to be removed
+*/
 static void destroyStackNode(StackNode *node){
     free(node);
 }
 
+/**
+ * \brief       Deletes the node and all other 'next' nodes following recursively
+ * \param       node: pointer to the node being deleted
+*/
 static void destroyLowerStackNodes(StackNode *node){
     if(node->next != NULL){
         destroyLowerStackNodes(node->next);
